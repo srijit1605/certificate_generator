@@ -9,6 +9,7 @@ const submitBtn = document.getElementById("submitBtn");
 const { PDFDocument, rgb, degrees } = PDFLib;
 
 const data = []
+let val
 let time;
 let distance;
 let participants;
@@ -41,7 +42,7 @@ $("#participantList").submit((e) => {
   time = $("#appt").val();
 console.log(time, time.split(":"))
   displayParticipants($("#participantSelect").val());
-  const val = $("#participantSelect").val();
+  val = $("#participantSelect").val();
   if (val.trim() !== "") {
       generatePDF(val, `${distance} KMS`);
   }
@@ -115,7 +116,13 @@ const generatePDF = async (name, pos) => {
   // Get the first page of the document
   const pages = pdfDoc.getPages();
   const firstPage = pages[0];
-  const textSize = 44;
+  console.log(name)
+  let textSize
+  if(name === 'Shrikant Yashwant Kolatkar') {
+    textSize = 41;
+  } else{
+    textSize = 44;
+  }
   const textWidth1 = SanChezFont.widthOfTextAtSize(name, textSize);
 
   // Draw a string of text diagonally across the first page
@@ -169,5 +176,5 @@ const generatePDF = async (name, pos) => {
 
   // Serialize the PDFDocument to bytes (a Uint8Array)
   const pdfDataUri = await pdfDoc.saveAsBase64({ dataUri: true });
-  saveAs(pdfDataUri, "newcertificate.pdf");
+  saveAs(pdfDataUri, `${val}.pdf`);
 };
