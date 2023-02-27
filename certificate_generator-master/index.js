@@ -17,9 +17,9 @@ const newData = {"version":"0.6","reqId":"0","status":"ok","sig":"965851464","ta
 
 
 $(document).ready(() => {
-  $.get(url, (data) => {
-    participants = JSON.parse(data.substring(47).slice(0, -2));
-    // participants = newData;
+  // $.get(url, (data) => {
+    // participants = JSON.parse(data.substring(47).slice(0, -2));
+    participants = newData;
     console.log(participants.table.rows);
     for (i = 0; i < participants.table.rows.length; i++) {
       var participantName = participants.table.rows[i].c[2].v;
@@ -33,7 +33,7 @@ $(document).ready(() => {
     }
     $("#participantList").show();
     $("#loading").hide();
-  });
+  // });
 });
 
 $("#participantList").submit((e) => {
