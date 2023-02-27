@@ -56,14 +56,14 @@ const displayParticipants = (name) => {
       
       distance = participants.table.rows[i].c[5].v
       $("#participantDetails").html(
-        "Name : " +
+        "<span class='itemLabel'>Name : </span>" +
           runner[2].v +
-          " Distance : " +
+          " <span class='itemLabel'>Distance : </span>" +
           distance +
           "KMS" +
-          " Number : " +
+          " <span class='itemLabel'>Number : </span>" +
           runner[1].v +
-          " time taken : " +
+          " <span class='itemLabel'>time taken : </span>" +
           time
       );
       $("#participantDetails").show();
