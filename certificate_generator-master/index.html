@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Certificate Generator using javascript</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo+Narrow&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/png" href="favicon.png" />
+  </head>
+  <body>
+    <header>
+      <div class="logo"></div>
+    </header>
+    <main>
+      <div>
+        <div class="fieldAlignment">
+          <select name="Cert" class="dropdown"  id="cert">
+            <option value="participant">Participant</option>
+            <option value="volunteer">Volunteer</option>
+          </select>
+        </div>
+        <div class="fieldAlignment">
+          </select>
+            <p class="lead" id="loading">Fetching list of participants...</p>
+            <form id="participantList" style="display: none">
+              <select id="participantSelect" class="form-control dropdown"></select>
+              <div id="userPosDisp">
+              <label for="appt">enter time:</label>
+              <input class="without_ampm" type="time" id="appt" name="appt" step="1" value="01:00:00" min='00:00:00' max= '11:00:00'/>
+            </div>
+          <!-- partial -->
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        </div>
+        <input type="submit" id="submitBtn" value="Get Certificate" />
+      </form>
+      </div>
+      <p class="lead" id="participantDetails" style="display: none"></p>
+    </main>
+    <script src="https://unpkg.com/pdf-lib/dist/pdf-lib.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://unpkg.com/@pdf-lib/fontkit@0.0.4"></script>
+    <script src="filesaver.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>
