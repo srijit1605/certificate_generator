@@ -17,7 +17,7 @@ const newData = {"version":"0.6","reqId":"0","status":"ok","sig":"965851464","ta
 
 
 $(document).ready(() => {
-  // $.get(url, (data) => {
+  $.get(url, (data) => {
     participants = JSON.parse(data.substring(47).slice(0, -2));
     // participants = newData;
     console.log(participants.table.rows);
@@ -33,7 +33,7 @@ $(document).ready(() => {
     }
     $("#participantList").show();
     $("#loading").hide();
-  // });
+  });
 });
 
 $("#participantList").submit((e) => {
